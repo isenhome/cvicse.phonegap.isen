@@ -1,0 +1,160 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale = 1.0">
+<meta name="author" content="FamousThemes">
+<meta name="description" content="Get in the spotlight">
+<meta name="keywords" content="premium css templates, premium wordpress themes, famous themes, themeforest">
+<title>My mobile page V2</title>
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+	$(function() {
+		$('#activator').click(function(){
+				$('#box').animate({'top':'66px'},500);
+		});
+		$('#boxclose').click(function(){
+				$('#box').animate({'top':'-425px'},500);
+		});
+		$('#activator_share').click(function(){
+				$('#box_share').animate({'top':'65px'},500);
+		});
+		$('#boxclose_share').click(function(){
+				$('#box_share').animate({'top':'-425px'},500);
+		});
+	});
+	$(document).ready(function(){
+	$(".trigger").click(function(){
+		$(this).toggleClass("active").next().slideToggle("slow");
+		return false;
+	});
+	
+	});
+</script>
+<!-- Hide Mobiles Browser Navigation Bar -->
+<script type="text/javascript">
+	window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+	// Hide the address bar!
+	window.scrollTo(0, 1);
+	}, 0);
+	});
+</script>
+</head>
+
+<body marginwidth="0" marginheight="0">
+<div id="main_container">
+	<div class="header">
+    <a href="#" class="left_bt">返回</a>
+    <span>部门经理审批</span>
+	<a href="Records.html" class="right_bt_isen">记录</a>
+    </div>
+
+        <div class="box" id="box_share">
+        	<div class="box_content">
+            	<div class="box_content_tab">
+                导航栏
+                </div>
+                <div class="box_content_center">
+					<div class="menu">
+							<!--因使用此导航页面较多，可使用include jsp页面统一管理-->
+		<!-- include(indexInfo.jsp)-->
+						<ul>
+							<li><a href="daibanlist.html"><img src="css/images/icon2.png" border="0" alt="" title="">发起任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon6.png" border="0" alt="" title="">待办任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon5.png" border="0" alt="" title="">在办任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon4.png" border="0" alt="" title="">办结任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon1.png" border="0" alt="" title="">人员信息</a></li>
+							<!--<li><a href="contact.html"><img src="css/images/icon6.png" border="0" alt="" title="">Contact</a></li>-->
+						</ul>
+					</div>
+                <a class="boxclose_right" id="boxclose_share">关闭</a>
+                <div class="clear"></div>
+                
+                </div>
+           </div>
+        </div>
+        
+        
+	<div class="content">
+    	<!--
+    	<div class="corner_wrap">
+        
+            <div class="entry">
+            <h3>Let's get in touch!</h3>
+            <img src="css/images/pic.jpg" alt="" title="" border="0">
+            <div class="contact_info">  
+            <ul>          
+            <li>Adress: 123 Street, Minesota COP 307</li>
+            <li>Website: <a href="http://famousthemes.com">www.famousthemes.com</a> </li>
+            <li>Email: <a href="#">myemail@myemail.com</a></li>
+            </ul>
+            </div> 
+			</div>
+      
+        </div>
+        <div class="shadow_wrap"></div>
+		-->
+
+		<!--表单开始-->
+		<!--表单信息可以单独一个jsp文件，使用时include即可-->
+		<!--include(*.jsp)-->
+		<div class="toogle_wrap">
+			<div class="trigger"><a href="#">表单信息</a></div>
+			<div class="toggle_container" style="display: none; ">
+				<ul>
+					<li><span>申请人：李玲</span></li>
+					<li><span>申请部门：运营部</span></li>
+					<li><span>假期时间：2012-07-17 到 2012-07-22</span></li>
+					<li><span>请假类型：事假</span></li>
+					<li><span>年休假天数：0天</span></li>
+					<li><span>请假天数：6天</span></li>
+					<li><span>总天数：6天</span></li>
+					<li><span>请假备注说明：半天</span></li>
+					<li><span>请假原因：回家探亲</span></li>
+					<!--<li><a href="#">Archive five</a></li>-->
+				</ul>
+			</div>
+		</div>
+		<!-- 表单结束-->
+<form action="submit.html" method="post">
+        <div class="shadow_wrap"></div>
+            <div class="toogle_wrap">
+                <div class=" trigger active"><a href="#">批复流程</a></div>
+                <div class="toggle_container" style="display: block; ">
+                    <div class="form_content">
+                    <form>
+                    <label>Name:</label>
+                    <input type="text" class="form_input">
+                    <label>Email:</label>
+                    <input type="text" class="form_input">
+                    <label>Phone:</label>
+                    <input type="text" class="form_input">
+					<label>Message:</label>
+                    <textarea class="form_textarea"></textarea>
+					<label>Message:</label>
+                    <textarea class="form_textarea"></textarea>
+                    <input type="submit" class="form_submit_right" value="Submit">
+                    </form>
+                    </div>
+                </div>
+            </div>   
+        <div class="shadow_wrap"></div>
+        </form>
+   		<div class="clear_left"></div>
+
+    
+    </div>
+
+
+</div>
+<div id="footer">
+<a href="#" class="left_bt" id="activator_share">导航</a>
+<span>请假流程</span>
+<a onclick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" title="Go on top" class="right_bt"><img src="css/images/top.png" alt="" title="" border="0"></a>
+</div>
+
+
+</body></html>

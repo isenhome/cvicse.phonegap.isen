@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale = 1.0">
+<meta name="author" content="FamousThemes">
+<meta name="description" content="Get in the spotlight">
+<meta name="keywords" content="premium css templates, premium wordpress themes, famous themes, themeforest">
+
+<title>My mobile page V2</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/preview.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/fullscreen_preview.css" media="screen">
+<script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="script.utils/md5.js"></script>
+<script type="text/javascript" src="cordova-2.1.0.js"></script>
+<script type="text/javascript" src="script.conf/globalConfig.js"></script>
+<script type="text/javascript" src="script.validation/validate.js"></script>
+
+
+<!-- Hide Mobiles Browser Navigation Bar -->
+<script type="text/javascript">
+	window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+	// Hide the address bar!
+	window.scrollTo(0, 1);
+	}, 0);
+	});
+</script>
+<script type="text/javascript">
+	$().ready(function(){
+		$.ajax({url:GlobalConfig.hostAddress("initMobo.mobo"),
+		type:"GET",
+		success:function (data, textStatus, jqXHR){
+			if(data == null){
+				alert(GlobalConfig.messages.connectError);
+				navigator.app.exitApp();
+			}
+			var jsonData = JSON.parse(data);
+			if(jsonData.result_code != 200){
+				alert(GlobalConfig.messages.connectError);
+				navigator.app.exitApp();
+			}
+		},
+		error:function (jqXHR, textStatus, errorThrown){
+			alert(GlobalConfig.messages.connectError);
+			navigator.app.exitApp();
+		}
+		});
+		
+		$("#submit_login").click(function(){
+			var loginName = $("input[name='loginName']").val();
+			var password = $("input[name='password_temp']").val();
+			password = MD5(MD5(password));
+			$("input[name='password']").val(password);
+			$.ajax({url:GlobalConfig.hostAddress("postLogin.mobo"),
+					type:"POST",
+					data:$("#form_login").serialize(),
+					success:function(data, textStatus, jqXHR){
+						var jsonData = JSON.parse(data);
+						if(jsonData.result_code == 200&&jsonData.isAllow){
+							window.location.href = "index.html";
+						}
+						else if(jsonData.result_code == 400){
+							alert(GlobalConfig.messages.loginError);
+						}
+						else{
+							alert(GlobalConfig.messages.loginError);
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+						alert(GlobalConfig.messages.connectError);
+					}
+			});
+		});
+	});
+	
+	
+</script>
+</head>
+
+<body marginwidth="0" marginheight="0">
+<form action="index.html" method="post" id="form_login">
+<div id="main_container">
+	<div class="logo">
+    		<a href="index.html"><img src="css/images/logo.png" alt="" title="" border="0"></a>
+			<table widht="100%">
+				 <tr>
+				 <td><label style="font-size:14px; font-weight:bold; color:#302f2f; text-decoration:none; text-shadow:1px 1px #dcdcdc;">用户名:</label></td>
+				 <td><input name="loginName" type="text" class="form_input"></td>
+				 </tr>
+
+				 <tr>
+				 <td><label style="font-size:14px; font-weight:bold; color:#302f2f; text-decoration:none; text-shadow:1px 1px #dcdcdc;">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label></td>
+				 <td>
+				 <input name="password_temp" type="password" class="form_input">
+				 <input name="password" type="hidden" class="form_input">
+				 </td>
+				 </tr>
+
+				 <tr>
+				 <td colspan=2><input type="button" id="submit_login" class="form_submit_right" value="登录" style="float:left"><input type="reset" class="form_submit_right" value="重置"style="float:right"></td>
+				 </tr>
+			</table>
+    </div>
+</div>
+
+</body>
+</html>

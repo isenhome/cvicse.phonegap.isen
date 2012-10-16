@@ -1,0 +1,75 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale = 1.0">
+<meta name="author" content="FamousThemes">
+<meta name="description" content="Get in the spotlight">
+<meta name="keywords" content="premium css templates, premium wordpress themes, famous themes, themeforest">
+
+<title>My mobile page V2</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/preview.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/fullscreen_preview.css" media="screen">
+<script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="cordova-2.1.0.js"></script>
+<script type="text/javascript" src="script.conf/globalConfig.js"></script>
+<script type="text/javascript" src="script.flows/commonFlowPage.js"></script>
+
+<!-- Hide Mobiles Browser Navigation Bar -->
+<script type="text/javascript">
+	window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+	// Hide the address bar!
+	window.scrollTo(0, 1);
+	}, 0);
+	});
+</script>
+<script type="text/javascript">
+	$().ready(function(){
+		$.ajax({url:GlobalConfig.hostAddress("initIndex.mobo"),
+		type:"GET",
+		success:function (data, textStatus, jqXHR){
+			var jsonData = JSON.parse(data);
+			if(jsonData.result_code == 200){
+				GlobalConfig.user.userName = jsonData.user;
+				FlowPage.setFooterUser();
+			}
+		},
+		error:function (jqXHR, textStatus, errorThrown){
+			alert(GlobalConfig.messages.connectError);
+		}
+		});
+	});
+</script>
+</head>
+
+<body marginwidth="0" marginheight="0">
+<div id="main_container">
+	<div class="header">
+	    <!--<a href="#" class="left_bt">&nbsp;&nbsp;&nbsp;&nbsp;</a>-->
+	    <span>首页</span>
+	    <!-- <a href="#" class="right_bt_isen">&nbsp;&nbsp;&nbsp;&nbsp;</a>-->
+		<!--<a href="login.html" class="right_bt_isen">注销</a>-->
+	</div>
+	<div class="logo">
+    		<a href="index.html"><img src="css/images/logo.png" alt="" title="" border="0"></a>
+    </div>
+	<div class="menu">
+		<!--因使用此导航页面较多，可使用include jsp页面统一管理-->
+		<!-- include(indexInfo.jsp)-->
+    	<ul>
+            <li><a href="create.html"><img src="css/images/icon2.png" border="0" alt="" title="">发起任务</a></li>
+            <li><a href="daibanlist.html"><img src="css/images/icon6.png" border="0" alt="" title="">待办任务</a></li>
+            <li><a href="daibanlist.html"><img src="css/images/icon5.png" border="0" alt="" title="">在办任务</a></li>
+            <li><a href="daibanlist.html"><img src="css/images/icon4.png" border="0" alt="" title="">办结任务</a></li>
+            <li><a href="daibanlist.html"><img src="css/images/icon1.png" border="0" alt="" title="">人员信息</a></li>
+            <!--<li><a href="contact.html"><img src="css/images/icon6.png" border="0" alt="" title="">Contact</a></li>-->
+        </ul>
+    </div>
+</div>
+<div id="footer">
+<span id="userName"></span>
+</div>
+</body>
+</html>

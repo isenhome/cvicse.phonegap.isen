@@ -1,0 +1,144 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale = 1.0">
+<meta name="author" content="FamousThemes">
+<meta name="description" content="Get in the spotlight">
+<meta name="keywords" content="premium css templates, premium wordpress themes, famous themes, themeforest">
+<title>My mobile page V2</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript">
+var $ = jQuery.noConflict();
+	$(function() {
+		$('#activator').click(function(){
+				$('#box').animate({'top':'66px'},500);
+		});
+		$('#boxclose').click(function(){
+				$('#box').animate({'top':'-425px'},500);
+		});
+		$('#activator_share').click(function(){
+				$('#box_share').animate({'top':'65px'},500);
+		});
+		$('#boxclose_share').click(function(){
+				$('#box_share').animate({'top':'-425px'},500);
+		});
+	});
+	$(document).ready(function(){
+	$(".trigger").click(function(){
+		$(this).toggleClass("active").next().slideToggle("slow");
+		return false;
+	});
+	
+	});
+</script>
+<!-- Hide Mobiles Browser Navigation Bar -->
+<script type="text/javascript">
+	window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+	// Hide the address bar!
+	window.scrollTo(0, 1);
+	}, 0);
+	});
+</script>
+</head>
+
+<body marginwidth="0" marginheight="0">
+<div id="main_container">
+	<div class="header">
+    <a href="#" class="left_bt" onclick="window.history.go(-1)">返回</a>
+    <span>流程处理记录</span>
+	<a href="login.html" class="right_bt_isen">注销</a>
+    </div>
+
+        <div class="box" id="box_share">
+        	<div class="box_content">
+            	<div class="box_content_tab">
+                导航栏
+                </div>
+                <div class="box_content_center">
+					<div class="menu">
+							<!--因使用此导航页面较多，可使用include jsp页面统一管理-->
+		<!-- include(indexInfo.jsp)-->
+						<ul>
+							<li><a href="daibanlist.html"><img src="css/images/icon2.png" border="0" alt="" title="">发起任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon6.png" border="0" alt="" title="">待办任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon5.png" border="0" alt="" title="">在办任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon4.png" border="0" alt="" title="">办结任务</a></li>
+							<li><a href="daibanlist.html"><img src="css/images/icon1.png" border="0" alt="" title="">人员信息</a></li>
+							<!--<li><a href="contact.html"><img src="css/images/icon6.png" border="0" alt="" title="">Contact</a></li>-->
+						</ul>
+					</div>
+                <a class="boxclose_right" id="boxclose_share">关闭</a>
+                <div class="clear"></div>
+                
+                </div>
+           </div>
+        </div>
+        
+        
+	<div class="content">
+    	
+
+		<!--流程处理记录开始-->
+    	<div class="corner_wrap">
+            <div class="entry">
+				<h3>申请</h3>
+				<div class="contact_info">  
+					<ul>          
+					<li>处理人：李玲</li>
+					<li>处理部门：运营部</li>
+					<li>处理意见：无</li>
+					<li>处理时间：2012-07-17 15:50:58</li>
+					</ul>
+				</div> 
+			</div>
+        </div>
+        <div class="shadow_wrap"></div>
+    	<div class="corner_wrap">
+            <div class="entry">
+				<h3>申请</h3>
+				<div class="contact_info">  
+					<ul>          
+					<li>处理人：李玲</li>
+					<li>处理部门：运营部</li>
+					<li>处理意见：无</li>
+					<li>处理时间：2012-07-17 15:50:58</li>
+					</ul>
+				</div> 
+			</div>
+        </div>
+        <div class="shadow_wrap"></div>
+    	<div class="corner_wrap">
+            <div class="entry">
+				<h3>申请</h3>
+				<div class="contact_info">  
+					<ul>          
+					<li>处理人：李玲</li>
+					<li>处理部门：运营部</li>
+					<li>处理意见：无</li>
+					<li>处理时间：2012-07-17 15:50:58</li>
+					</ul>
+				</div> 
+			</div>
+        </div>
+        <div class="shadow_wrap"></div>
+		<!-- 流程处理记录结束-->
+
+        <a href="#" class="left_nav">上一页</a>
+        <a href="#" class="right_nav">下一页</a>
+
+   		<div class="clear_left"></div>
+
+    
+	</div>
+
+</div>
+<div id="footer">
+<a href="#" class="left_bt" id="activator_share">导航</a>
+<span>第2页/共10页</span>
+<a onclick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );" href="javascript:void(0);" title="Go on top" class="right_bt"><img src="css/images/top.png" alt="" title="" border="0"></a>
+</div>
+
+
+</body></html>
